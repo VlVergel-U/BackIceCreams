@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import config from './default';
+import config from './default.js';
 
 const { dbConfig } = config;
 

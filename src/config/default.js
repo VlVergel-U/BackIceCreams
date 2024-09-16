@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-export default   {
+export default {
     port : process.env.PORT,
     jwt_hash: process.env.JWT_HASH,
     dbConfig: {
@@ -12,4 +12,5 @@ export default   {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME
       }
-};
+}
+
