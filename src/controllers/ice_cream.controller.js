@@ -1,76 +1,58 @@
-import { ice_creams } from "../models/ice_cream.js";
+import iceCreamModel from '../models/ice_cream_crud.model.js'
 
-export const getIceCreams = async (req, res) => {
-    try {
-        const iceCreamsAll = await ice_creams.findAll();
-        res.json(iceCreamsAll);
-    } catch (error) {
-        return res.status(500).json({ message: error.nessage });
-    }
-};
+export async function getIceCreams (req, res) {
 
-export const createIceCream = async (req, res) => {
-    try {
-        console.log(req.body);
-        const {
-            flavor,
-            price,
-            company,
-            type
-        } = req.body;
-        const newIceCream = await ice_creams.create({
-            flavor,
-            price,
-            company,
-            type
-        });
-        res.json(newIceCream);
-    } catch (error) {
-        return res.status(500).json({ message: error.nessage });
-    }
-};
+    const info = await iceCreamModel.getIceCreams()
 
-export const getIceCream = async (req, res) => {
-    const { id } = req.params;
-    let iceCream;
-    try {
+    res.status(200).json({
+        sucess: true,
+        data: info
+    })
+}
+export  async function createIceCream (req, res) {
 
-        if(id){
-            iceCream = await ice_creams.findOne({
-                where: { id },
-            });
-        }
-        res.json(iceCream);
+    const {flavor, price, company, type} = req.body;
 
-    } catch (error) {
-        return res.status(500).json({ message: error.nessage });
-    }
-};
+    const info = await iceCreamModel.createIceCream(flavor, price, company, type)
 
-export const updateIceCream = async (req, res) => {
-    const { id } = req.params;
-    const { flavor, price, company, type } = req.body;
-    try {
-        const iceCream = await ice_creams.findOne({
-            where:{
-                id
-            }
-        })
-        if (!iceCream) {
-            return res.status(404).json({ message: 'Ice cream doesnt exist' });
-        }
-        iceCream.flavor = flavor ?? iceCream.flavor;
-        iceCream.price = price ?? iceCream.price;
-        iceCream.company = company ?? iceCream.company;
-        iceCream.type = type ?? iceCream.type;
+    res.status(200).json({
+        sucess: true,
+        data: info
+    })
+}
+export async function updateIceCream (req, res) {
 
-    await iceCream.save();
-    res.json({ message: 'Updated ice cream ', iceCream });
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
-    }
-};
+    const {id} = req.params;
+    const {flavor, price, company, type} = req.body;
 
-export const deleteIceCream = async (req, res) => {
+    const info = await iceCreamModel.updateIceCream(id, flavor, price, company, type);
 
+    res.status(200).json({
+        sucess: true,
+        data: info
+    })
+}
+export async function deleteIceCream (req, res) {
+
+    const {id} = req.params;
+
+    const info = await iceCreamModel.deleteIceCream(id );
+
+    res.status(200).json({
+        sucess: true,
+        data: info
+    })
+}
+
+
+export async function getIceCream(req, res){
+
+    const {id} = req.params
+
+    const info = await iceCreamModel.getIceCream(id);
+
+    res.status(200).json({
+        sucess: true,
+         data: info
+    })
 }

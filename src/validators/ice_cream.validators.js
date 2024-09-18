@@ -10,7 +10,6 @@ export const getIceCreamValidator = checkSchema(
         },
         flavor:{
             isAlpha: {errorMessage: 'just letters'},
-
             notEmpty: true,
             errorMessage: 'company required'
         },

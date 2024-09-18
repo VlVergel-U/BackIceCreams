@@ -13,18 +13,18 @@ if(!token){
    })
 }
 
-token = token.split(" ");
+const SplitToken = token.split(" ");
 
 //Verify that the authorization is Bearer
-if (token[0] !== "Bearer"){
+if (SplitToken[0] !== "Bearer"){
    //Returns a authorization answer
-   res.status(401).json({
+  return res.status(401).json({
       success: false,
       msg: 'Authorization required'
    })
 }
 
-jwt.verify(token[1], config.jwt_hash, (error, decode)=>{
+jwt.verify(SplitToken[1], config.jwt_hash, (error, decode)=>{
 if(error){
    return res.status(201).json({
       success: false,
@@ -35,9 +35,9 @@ if(error){
    next();
 })
 
- res.status(200).json({
-    sucess: true,
-    token : token,
-    msn: 'This is a message'
- })
+//  res.status(200).json({
+//     sucess: true,
+//     token : token,
+//     msn: 'This is a message'
+//  })
 }

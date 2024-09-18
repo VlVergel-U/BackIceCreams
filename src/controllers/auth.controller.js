@@ -7,7 +7,7 @@ export async function login(req, res){
         data: {
             role: 'ADMIN', 
             doc: '123', 
-            username: 'user'
+            username: 'Vale'
         },
     }, environment.jwt_hash)
 
