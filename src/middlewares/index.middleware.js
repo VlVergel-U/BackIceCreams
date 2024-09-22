@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyToken } from "./token.middlwares.js";
+import { verifyToken } from "./token.middlware.js";
 
 const ValidateRoutes = Router()
 

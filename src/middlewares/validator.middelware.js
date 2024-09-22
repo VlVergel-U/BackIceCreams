@@ -13,7 +13,7 @@ export const validate = (validations) => async (req, res, next)=> {
     }
     
     res.status(422).json({
-        errors: errors.array(),
+        errors: errors.array().map(error => error.msg),
         success: false
     })
 }

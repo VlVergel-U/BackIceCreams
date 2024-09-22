@@ -6,7 +6,7 @@ export async function login(req, res){
         exp: Math.floor(new Date() /1000) + (60*60),
         data: {
             role: 'ADMIN', 
-            doc: '123', 
+            password: '123', 
             username: 'Vale'
         },
     }, environment.jwt_hash)
