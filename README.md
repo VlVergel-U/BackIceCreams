@@ -1,4 +1,5 @@
 # 🍦 Ice Cream API
+![Ice Cream GIF](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDZ1NTZ5aW9iOWNkcnUwc2d6dGN5cmppaHVicmVnYmliZnRhdnJoNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cMyXD8p0nDRDPdZ6E8/giphy.gif)
 
 Esta API permite crear, actualizar, obtener y eliminar helados en una base de datos, además de validar entradas y manejar errores adecuadamente.
 
@@ -45,6 +46,7 @@ Esta API permite crear, actualizar, obtener y eliminar helados en una base de da
 - **Sequelize**: ORM utilizado únicamente para la creación de tablas.
 - **dotenv**: Módulo para gestionar variables de entorno.
 - **express-validator**: Middleware para validación de datos en Express.
+- **bycript**: Biblioteca utilizada para el cifrado de contraseñas
 
 
 ## 📖 Endpoints
@@ -52,7 +54,7 @@ Esta API permite crear, actualizar, obtener y eliminar helados en una base de da
 ### 1. **Crear Helado**  
 Crea un nuevo helado con los datos proporcionados.
 
-**POST** `/ice-creams`
+**POST** `/api/iceCream`
 
 #### Request:
 - **body**:
@@ -80,7 +82,7 @@ Crea un nuevo helado con los datos proporcionados.
 ### 2. **Obtener Helado por ID**  
 Obtiene los detalles de un helado específico por su `id`.
 
-**GET** `/ice-creams/:id`
+**GET** `/api/iceCream/:id`
 
 #### Request:
 - **params**:
@@ -106,7 +108,7 @@ Obtiene los detalles de un helado específico por su `id`.
 ### 3. **Actualizar Helado**  
 Actualiza un helado existente con los nuevos datos proporcionados.
 
-**PUT** `/ice-creams/:id`
+**PUT** `/api/iceCream/:id`
 
 #### Request:
 - **params**:
@@ -137,7 +139,7 @@ Actualiza un helado existente con los nuevos datos proporcionados.
 ### 4. **Eliminar Helado**  
 Elimina un helado específico por su `id`.
 
-**DELETE** `/ice-creams/:id`
+**DELETE** `/api/iceCream/:id`
 
 #### Request:
 - **params**:
@@ -158,19 +160,50 @@ Elimina un helado específico por su `id`.
 }
 ```
 
+### 5. **Obtener Todos Los Helados**  
+Obtiene una lista de todos los helados creados.
+
+**GET** `/api/iceCream`
+
+#### Response:
+```json
+{
+  "success": true,
+  "msg": "Helado creado exitosamente",
+  "data": {
+    "id": 1,
+    "flavor": "Vainilla",
+    "price": 2000,
+    "company": "CremHelado",
+    "type": "Vaso"
+  }
+}
+```
+
 ---
 
-### 5. **Login**
+### 6. **Login**
 
 Autentica un usuario y retorna su rol y demás información relevante.
 
-**GET** `/auth`
+**GET** `/auth/login`
 
 #### Request:
 - **query**:
   - `username`: **requerido**, nombre de usuario. Ejemplo: `"Vale"`
   - `password`: **requerido**, contraseña del usuario. Ejemplo: `"123456"`
-  - `role`: **requerido**, rol del usuario. Ejemplo: `"Admin"`
+
+
+### 6. **Registro**
+
+Crea un nuevo usuario.
+
+**GET** `/auth/register`
+
+#### Request:
+- **query**:
+  - `username`: **requerido**, nombre de usuario. Ejemplo: `"Vale"`
+  - `password`: **requerido**, contraseña del usuario. Ejemplo: `"123456"`
 
 
 ## 🧪 Validaciones
@@ -197,6 +230,8 @@ Autentica un usuario y retorna su rol y demás información relevante.
 │   ├── models
 │   │   └── ice_cream_crud.model.js     # Modelo de CRUD para controlador
 │   │   └── ice_cream.model.js          # Modelo de tabla para sequelize
+│   │   └── user_crud.model.js  
+│   │   └── user.model.js  
 │   ├── routes
 │   │   └── auth.routes.js       # Rutas para los endpoints de helados
 │   │   └── ice_cream.router.js

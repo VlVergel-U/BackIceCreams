@@ -24,11 +24,11 @@ export default class PgConnection {
 
         this.connection.connect()
             .then(obj => {
-                console.log("Connected to DB, server version: " + obj.client.serverVersion);
+                console.log("Conectado a la BD, versión: " + obj.client.serverVersion);
                 obj.done(); 
             })
             .catch(e => {
-                console.log("Connection error: " + e.message || e);
+                console.log("Error de conexión: " + e.message || e);
             });
     }
 }

@@ -4,7 +4,7 @@ export const getIceCreamValidator = checkSchema(
 
     {
         id: {
-            matches: {options:  /^[0-9]+$/, errorMessage: 'The id must be a number'},
+            matches: {options:  /^[0-9]+$/, errorMessage: 'El id debe ser un número'},
         },
 
     }, ["params"]
@@ -15,7 +15,7 @@ export const deleteIceCreamValidator = checkSchema(
 
     {
         id: {
-            matches: {options:  /^[0-9]+$/, errorMessage: 'The id must be a number'},
+            matches: {options:  /^[0-9]+$/, errorMessage: 'El id debe ser un número'},
         },
 
     }, ["params"]
@@ -27,48 +27,48 @@ export const createIceCreamValidator = checkSchema(
 
     {
         flavor:{
-            isAlpha: {errorMessage: 'just letters'},
+            isAlpha: {errorMessage: 'Sólo letras'},
             notEmpty: true,
-            errorMessage: 'flavor required',
+            errorMessage: 'Sabor requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['vainilla', 'chocolate']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Invalid type. Allowed types: vainilla, chocolate'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: vainilla, chocolate'
               },
         },
         price: {
-            matches: {options:  /^[0-9]+$/, errorMessage: 'The price must be a number'},
+            matches: {options:  /^[0-9]+$/, errorMessage: 'El precio debe ser numérico'},
             notEmpty: true,
-            errorMessage: 'price required',
+            errorMessage: 'Precio requerido',
             isFloat: {
                 options: { min: 1000, max: 200000 },
-                errorMessage: 'Price must be between 1000 and 200,000 COP'
+                errorMessage: 'El precio debe estar entre 1000 y 200,000 COP'
               },
         },
         company:{
-            isAlpha: {errorMessage: 'just letters'},
+            isAlpha: {errorMessage: 'Sólo letras'},
             notEmpty: true,
-            errorMessage: 'company required',
+            errorMessage: 'Empresa requerida',
             custom: {
                 options: (value) => {
                   const validTypes = ['cremhelado', 'popsy']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Invalid type. Allowed types: cremhelado, popsy'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: cremhelado, popsy'
               },
         },
         type:{
-            isAlpha: {errorMessage: 'just letters'},
+            isAlpha: {errorMessage: 'Sólo letras'},
             notEmpty: true,
-            errorMessage: 'type required',
+            errorMessage: 'Tipo requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['cono', 'vaso']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Invalid type. Allowed types: cono, vaso'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: cono, vaso'
               },
         }
     }, ["body"]
@@ -79,51 +79,51 @@ export const updateIceCreamValidator = checkSchema(
 
     {
         id: {
-            matches: {options:  /^[0-9]+$/, errorMessage: 'The id must be a number'},
+            matches: {options:  /^[0-9]+$/, errorMessage: 'El id debe ser un número'},
         },
         flavor:{
-            isAlpha: {errorMessage: 'just letters'},
+            isAlpha: {errorMessage: 'Sólo letras'},
             notEmpty: true,
-            errorMessage: 'flavor required',
+            errorMessage: 'Sabor requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['vainilla', 'chocolate']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Invalid type. Allowed types: vainilla, chocolate'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: vainilla, chocolate'
               },
         },
         price: {
             matches: {options:  /^[0-9]+$/, errorMessage: 'The price must be a number'},
             notEmpty: true,
-            errorMessage: 'price required',
+            errorMessage: 'Precio requerido',
             isFloat: {
                 options: { min: 1000, max: 200000 },
                 errorMessage: 'Price must be between 1000 and 200,000 COP'
               },
         },
         company:{
-            isAlpha: {errorMessage: 'just letters'},
+            isAlpha: {errorMessage: 'Sólo letras'},
             notEmpty: true,
-            errorMessage: 'company required',
+            errorMessage: 'Empresa requerida',
             custom: {
                 options: (value) => {
                   const validTypes = ['cremhelado', 'popsy']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Invalid type. Allowed types: cremhelado, popsy'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: cremhelado, popsy'
               },
         },
         type:{
-            isAlpha: {errorMessage: 'just letters'},
+            isAlpha: {errorMessage: 'Sólo letras'},
             notEmpty: true,
-            errorMessage: 'type required',
+            errorMessage: 'Tipo requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['cono', 'vaso']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Invalid type. Allowed types: cono, vaso'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: cono, vaso'
               },
         }
     }, ["body", "params"]

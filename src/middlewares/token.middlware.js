@@ -9,7 +9,7 @@ if(!token){
    //if doesnt exist returns a answer
   return res.status(401).json({
       success: false,
-      msg: 'Authotization required'
+      msg: 'Autorización requerida'
    })
 }
 
@@ -20,7 +20,7 @@ if (SplitToken[0] !== "Bearer"){
    //Returns a authorization answer
   return res.status(401).json({
       success: false,
-      msg: 'Authorization required'
+      msg: 'Autorización requerida'
    })
 }
 
@@ -28,7 +28,7 @@ jwt.verify(SplitToken[1], config.jwt_hash, (error, decode)=>{
 if(error){
    return res.status(201).json({
       success: false,
-      msg: 'Authorization required'
+      msg: 'Autorización requerida'
    })
 
 }

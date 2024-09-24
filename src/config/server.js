@@ -1,10 +1,11 @@
 import express from "express";
-import cors from "cors"; // Falta la importación de cors
+import cors from "cors";
 import server from '../config/default.js';
 import ValidateRoutes from "../middlewares/index.middleware.js";
 import indexRouter from "../routes/index.router.js";
 import PgConection from "../services/pgConection.service.js";
 import { sequelize } from "./database.js";
+import { createAdmin } from "../libs/createAdmin.js";
 
 export default class Server {
     constructor() {
@@ -15,9 +16,9 @@ export default class Server {
     async initDatabase() {
         try {
             new PgConection();
-            console.log('Database initialized successfully.');
+            console.log('Base de datos iniciada correctamente');
         } catch (error) {
-            console.error('Failed to initialize the database:', error);
+            console.error('Error al iniciar base de datos:', error);
         }
     }
 
@@ -37,14 +38,15 @@ export default class Server {
 
     async runServer() {
         try {
-            await sequelize.sync({ force: false });
+            await sequelize.sync({ force: true });
+            createAdmin();
             await this.initDatabase();
             this.middlewares();
             this.routes();
             this.app.listen(this.port);
             
         } catch (error) {
-            console.error('Error starting the server:', error);
+            console.error('Error al iniciar servidor:', error);
         }
     }
 }
