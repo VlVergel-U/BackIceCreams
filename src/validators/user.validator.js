@@ -5,11 +5,20 @@ export const getUserValidator = checkSchema(
     {
         username: {
             notEmpty: true,
-            errorMessage: 'Username requerido'
+            errorMessage: 'Username requerido',
+            matches: {
+                options: /^[A-Za-z0-9]+$/,
+                errorMessage: 'Username no permitido',
+              }
         },
         password: {
             notEmpty: true,
             errorMessage: 'Contraseña requerida',
+            matches: {
+                options: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                errorMessage:
+                  'Contraseña no permitida',
+              }
         }
 
     }, ["body"]

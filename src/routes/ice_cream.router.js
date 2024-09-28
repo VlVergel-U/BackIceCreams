@@ -8,7 +8,7 @@ const iceCreamRouter = Router()
 
 
 iceCreamRouter.get("/iceCream", getIceCreams);
-iceCreamRouter.get("/iceCream/:id", validate(getIceCreamValidator), getIceCream);
+iceCreamRouter.get("/iceCreamUnique/:id", validate(getIceCreamValidator), getIceCream);
 iceCreamRouter.post("/iceCream",validate(createIceCreamValidator), createIceCream);
 iceCreamRouter.delete("/iceCream/:id", validate(deleteIceCreamValidator), deleteIceCream);
 iceCreamRouter.put("/iceCream/:id", validate(updateIceCreamValidator), updateIceCream);

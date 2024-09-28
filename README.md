@@ -194,7 +194,7 @@ Autentica un usuario y retorna su rol y demás información relevante.
   - `password`: **requerido**, contraseña del usuario. Ejemplo: `"123456"`
 
 
-### 6. **Registro**
+### 7. **Registro**
 
 Crea un nuevo usuario.
 
