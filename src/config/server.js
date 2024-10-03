@@ -6,6 +6,8 @@ import indexRouter from "../routes/index.router.js";
 import PgConection from "../services/pgConection.service.js";
 import { sequelize } from "./database.js";
 import { createAdmin } from "../libs/createAdmin.js";
+import { ice_creams } from "../models/ice_cream.model.js";
+import { user } from "../models/user.model.js";
 
 export default class Server {
     constructor() {
@@ -39,7 +41,7 @@ export default class Server {
     async runServer() {
         try {
             await sequelize.sync({ force: true });
-            createAdmin();
+            await createAdmin();
             await this.initDatabase();
             this.middlewares();
             this.routes();

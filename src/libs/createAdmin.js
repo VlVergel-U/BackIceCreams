@@ -6,8 +6,8 @@ export const createAdmin = async () => {
       if (adminFound) return;
   
       const adminRegistered = await user.create({
-        username: "user",
-        password: "U-123456",
+        username: "user1234",
+        password: "user1234",
       });
       
       console.log("ID: " + adminFound.username);
