@@ -3,9 +3,9 @@ import loginController from '../controllers/auth.controller.js'
 import { validate } from '../middlewares/validator.middelware.js'
 import { createUserValidator, getUserValidator } from '../validators/user.validators.js'
 
-const authRuter = Router()
+const authRouter = Router()
 
-authRuter.post("/login", validate(getUserValidator), loginController.login)
-authRuter.post("/register", validate(createUserValidator), loginController.register)
+authRouter.post("/login", validate(getUserValidator), loginController.login)
+authRouter.post("/register", validate(createUserValidator), loginController.register)
 
-export default authRuter;
+export default authRouter;
