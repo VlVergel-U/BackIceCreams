@@ -16,11 +16,12 @@ export async function getIceCreams (req, res) {
 }
 export  async function createIceCream (req, res) {
 
-    const {flavor, price, company, type} = req.body;
+    const {img, flavor, price, company, type} = req.body;
 
     const existingIceCreams = await iceCreamModel.getIceCreams();
 
     const iceCreamExists = existingIceCreams.some(iceCream =>
+        iceCream.img === img &&
         iceCream.flavor === flavor &&
         iceCream.price === price &&
         iceCream.company === company &&
@@ -34,7 +35,7 @@ export  async function createIceCream (req, res) {
         });
     }
 
-    const info = await iceCreamModel.createIceCream(flavor, price, company, type)
+    const info = await iceCreamModel.createIceCream(img, flavor, price, company, type)
 
     res.status(200).json({
         sucess: true,
@@ -45,17 +46,17 @@ export  async function createIceCream (req, res) {
 export async function updateIceCream (req, res) {
 
     const {id} = req.params;
-    const {flavor, price, company, type} = req.body;
+    const {img, flavor, price, company, type} = req.body;
 
     const validateCreated = await iceCreamModel.getIceCreams();
 
-    const info = await iceCreamModel.updateIceCream(id, flavor, price, company, type);
+    const info = await iceCreamModel.updateIceCream(id, img, flavor, price, company, type);
 
     if(validateCreated.length === 0){
         return res.status(404).json({ message: 'No hay helados creados' });
     }
 
-    if(info.length === 0){
+    if (!info || info.length === 0) {
         return res.status(404).json({ message: 'Helado no encontrado' });
     }
 
@@ -65,6 +66,7 @@ export async function updateIceCream (req, res) {
         data: info
     })
 }
+
 export async function deleteIceCream (req, res) {
 
     const {id} = req.params;

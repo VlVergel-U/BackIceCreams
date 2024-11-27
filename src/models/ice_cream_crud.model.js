@@ -14,21 +14,22 @@ const getIceCreams = async () => {
     );
 };
 
-const createIceCream = async (flavor, price, company, type) => {
+const createIceCream = async (img, flavor, price, company, type) => {
     try {
         const pg = new PgConection();
         return await pg.connection.query(
             `
             INSERT INTO 
             ICE_CREAMS( 
+                img,
                 flavor, 
                 price, 
                 company, 
                 type
-            ) VALUES ($1, $2, $3, $4) 
+            ) VALUES ($1, $2, $3, $4, $5) 
             RETURNING *; 
             `,
-            [flavor, price, company, type]
+            [img, flavor, price, company, type]
         );
     } catch (error) {
         console.log(error);
@@ -54,22 +55,24 @@ const getIceCream = async (id) => {
     }
 };
 
-const updateIceCream = async (id, flavor, price, company, type) => {
+const updateIceCream = async (id, img, flavor, price, company, type) => {
     try {
         const pg = new PgConection();
+        console.log('Updating ice cream with ID:', id);
         return await pg.connection.query(
             `
             UPDATE ICE_CREAMS 
             SET 
-                flavor = $1, 
-                price = $2, 
-                company = $3, 
-                type = $4 
+                img = $1,
+                flavor = $2, 
+                price = $3, 
+                company = $4, 
+                type = $5 
             WHERE 
-                id = $5 
+                id = $6 
             RETURNING *;
             `,
-            [flavor, price, company, type, id]
+            [img, flavor, price, company, type, id]
         );
     } catch (error) {
         console.log(error);

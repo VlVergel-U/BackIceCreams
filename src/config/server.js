@@ -6,6 +6,7 @@ import indexRouter from "../routes/index.routes.js";
 import PgConection from "../services/pgConection.service.js";
 import { sequelize } from "./database.js";
 import { createAdmin } from "../libs/createAdmin.js";
+import { ice_creams } from "../models/ice_cream.model.js"; //NO BORRAR
 
 export default class Server {
     constructor() {
@@ -45,7 +46,7 @@ export default class Server {
 
         this.app.use((req, res, next) => {
             if (!this.connectionDatabase) {
-                return res.status(503).json({ message: "Nos morimos" });
+                return res.status(503).json({ message: "Nos morimos, intente más tarde 😔" });
             }
             next();
         });

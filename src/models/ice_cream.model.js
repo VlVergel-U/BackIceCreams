@@ -10,6 +10,9 @@ export const ice_creams = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
+    img: {
+      type: DataTypes.TEXT,
+    },
     flavor: {
       type: DataTypes.STRING(40),
     },
