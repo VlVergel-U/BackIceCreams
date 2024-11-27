@@ -2,7 +2,7 @@ import { ice_creams } from "../models/ice_cream.model.js";
 
 export const createIceCreams = async () => {
     try {
-        const helados = [
+        const iceCreams = [
             {
                 img: 'https://cuisinart.com.co/cdn/shop/articles/Helado_de_Fresa_Casero.jpg',
                 flavor: 'Fresa',
@@ -41,11 +41,11 @@ export const createIceCreams = async () => {
         ];
         let iceCreamsCreated = false;
 
-        for (const helado of helados) {
-            const { img, flavor, price, company, type } = helado;
-            const iceCream = await ice_creams.findOne({ where: { img, flavor, price, company, type } });
+        for (const iceCream of iceCreams) {
+            const { img, flavor, price, company, type } = iceCream;
+            const iceCreamCreated = await ice_creams.findOne({ where: { img, flavor, price, company, type } });
 
-            if (!iceCream) {
+            if (!iceCreamCreated) {
                 await ice_creams.create({ img, flavor, price, company, type });
             } else {
                 iceCreamsCreated = true;
