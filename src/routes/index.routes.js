@@ -1,5 +1,5 @@
 import { Router } from "express";
-import iceCreamRouter from "./ice_cream.router.js";
+import iceCreamRouter from "./ice_cream.routes.js";
 import authRouter from "./auth.routes.js";
 
 const indexRouter = Router();
