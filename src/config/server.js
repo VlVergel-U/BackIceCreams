@@ -7,6 +7,7 @@ import PgConection from "../services/pgConection.service.js";
 import { sequelize } from "./database.js";
 import { createAdmin } from "../libs/createAdmin.js";
 import { ice_creams } from "../models/ice_cream.model.js"; //NO BORRAR
+import { createIceCreams } from "../libs/createIceCreams.js";
 
 export default class Server {
     constructor() {
@@ -23,7 +24,7 @@ export default class Server {
             await sequelize.sync({ force: true });
             console.log('Modelos sincronizados en la base de datos');
             await createAdmin();
-            console.log('Administrador creado');
+            await createIceCreams();
             this.connectionDatabase = true;
             console.log('Base de datos iniciada correctamente');
         } catch (error) {

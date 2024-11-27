@@ -57,10 +57,10 @@ export const createIceCreamValidator = checkSchema(
             errorMessage: 'Sabor requerido',
             custom: {
                 options: (value) => {
-                  const validTypes = ['vainilla', 'chocolate']; 
+                  const validTypes = ['vainilla', 'chocolate', 'fresa', 'coco', 'chicle']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Tipo inválido, los tipos que se puede usar son: vainilla, chocolate'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: vainilla, chocolate, fresa, coco y chicle'
               },
         },
         price: {
@@ -136,10 +136,10 @@ export const updateIceCreamValidator = checkSchema(
             errorMessage: 'Sabor requerido',
             custom: {
                 options: (value) => {
-                  const validTypes = ['vainilla', 'chocolate']; 
+                  const validTypes = ['vainilla', 'chocolate', 'fresa', 'coco', 'chicle']; 
                   return validTypes.includes(value.toLowerCase()); 
                 },
-                errorMessage: 'Tipo inválido, los tipos que se puede usar son: vainilla, chocolate'
+                errorMessage: 'Tipo inválido, los tipos que se puede usar son: vainilla, chocolate, fresa, coco y chicle'
               },
         },
         price: {

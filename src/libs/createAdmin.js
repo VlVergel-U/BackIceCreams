@@ -4,17 +4,22 @@ import bcrypt from 'bcrypt';
 export const createAdmin = async () => {
     try {
       const adminFound = await user.findOne();
-      if (adminFound) return;
+
+      if (adminFound) {
+        console.log("Admin ya creado anteriormente :)")
+        return;
+      } 
 
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash("user1234", salt);
+
+      console.log("Admin creado :)")
 
       const adminRegistered = await user.create({
         username: "user1234",
         password: hashedPassword,
       });
       
-      console.log("ID: " + adminFound.username);
     } catch (error) {
       console.error(error);
     }
