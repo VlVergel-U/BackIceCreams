@@ -208,7 +208,7 @@ Crea un nuevo usuario.
 
 ## 🧪 Validaciones
 
-- **Flavor (sabor):** Solo se permiten valores como `vainilla` o `chocolate`. Se ignora la diferencia entre mayúsculas y minúsculas.
+- **Flavor (sabor):** Solo se permiten valores como `vainilla`,`chocolate`,`fresa`,`coco` y `chicle`. Se ignora la diferencia entre mayúsculas y minúsculas.
 - **Price (precio):** Debe ser un número entre 1000 y 200,000 COP.
 - **Company (empresa):** Solo se permiten `Popsy` o `CremHelado`.
 - **Type (tipo):** Solo se permiten `Cono` o `Vaso`.
@@ -223,6 +223,9 @@ Crea un nuevo usuario.
 │   ├── controllers
 │   │   └── auth.controller.js   # Lógica de control para manejar solicitudes de helados
 │   │   └── ice_cream.controller.js
+│   ├── libs
+│   │   └── createAdmin.js   # Lógica de valores de inicio
+│   │   └── createIceCreams.controller.js
 │   ├── middelwares
 │   │   └── index.middelware.js  # Manejar validaciones de token y respuestas de errores
 │   │   └── token.middelware.js
@@ -240,6 +243,7 @@ Crea un nuevo usuario.
 │       └── pgConection.service.js    # Conexión con el servicio de postgres
 │   └── validators
 │       └── ice_cream.validators.js    # Validaciones de entrada
+│       └── user.validators.js    
 ├── index.js                          # Configuración de la aplicación Express
 ├── .env                            # Archivo de configuración de variables de entorno
 ```
