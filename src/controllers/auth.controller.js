@@ -12,9 +12,6 @@ export async function login(req, res){
         const users = await userModel.getUser(username);
         const user = users[0];
 
-        // console.log(user);
-        // console.log(users)
-
         if (!user) { 
             return res.status(404).json({ message: 'Usuario incorrecto' });
         }
