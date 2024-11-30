@@ -13,13 +13,13 @@ export async function login(req, res){
         const user = users[0];
 
         if (!user) { 
-            return res.status(404).json({ message: 'Usuario incorrecto' });
+            return res.status(404).json({ message: 'Usuario o contraseña incorrectos' });
         }
 
     const correctPassword = await bcrypt.compare(password, user.password);
 
     if(!correctPassword){
-        return res.status(404).json({ message: 'Contraseña incorrecta' });
+        return res.status(404).json({ message: 'Usuario o contraseña incorrectos' });
 
     }
 
