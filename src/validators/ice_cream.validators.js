@@ -52,9 +52,9 @@ export const createIceCreamValidator = checkSchema(
         },
 
         flavor:{
-            isAlpha: {errorMessage: 'Sólo letras'},
+            isAlpha: {errorMessage: 'Solo puedes usar letras en este campo'},
             notEmpty: true,
-            errorMessage: 'Sabor requerido',
+            errorMessage: 'El sabor es requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['vainilla', 'chocolate', 'fresa', 'coco', 'chicle']; 
@@ -66,16 +66,16 @@ export const createIceCreamValidator = checkSchema(
         price: {
             matches: {options:  /^[0-9]+$/, errorMessage: 'El precio debe ser numérico'},
             notEmpty: true,
-            errorMessage: 'Precio requerido',
+            errorMessage: 'El precio es requerido',
             isFloat: {
                 options: { min: 1000, max: 200000 },
                 errorMessage: 'El precio debe estar entre 1000 y 200,000 COP'
               },
         },
         company:{
-            isAlpha: {errorMessage: 'Sólo letras'},
+            isAlpha: {errorMessage: 'Solo puedes usar letras en este campo'},
             notEmpty: true,
-            errorMessage: 'Empresa requerida',
+            errorMessage: 'La empresa es requerida',
             custom: {
                 options: (value) => {
                   const validTypes = ['cremhelado', 'popsy']; 
@@ -85,9 +85,9 @@ export const createIceCreamValidator = checkSchema(
               },
         },
         type:{
-            isAlpha: {errorMessage: 'Sólo letras'},
+            isAlpha: {errorMessage: 'Solo puedes usar letras en este campo'},
             notEmpty: true,
-            errorMessage: 'Tipo requerido',
+            errorMessage: 'El tipo de helado es requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['cono', 'vaso']; 
@@ -131,9 +131,9 @@ export const updateIceCreamValidator = checkSchema(
           },
       },
         flavor:{
-            isAlpha: {errorMessage: 'Sólo letras'},
+            isAlpha: {errorMessage: 'Solo puedes usar letras en este campo'},
             notEmpty: true,
-            errorMessage: 'Sabor requerido',
+            errorMessage: 'El sabor es requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['vainilla', 'chocolate', 'fresa', 'coco', 'chicle']; 
@@ -145,16 +145,16 @@ export const updateIceCreamValidator = checkSchema(
         price: {
             matches: {options:  /^[0-9]+$/, errorMessage: 'The price must be a number'},
             notEmpty: true,
-            errorMessage: 'Precio requerido',
+            errorMessage: 'El precio es requerido',
             isFloat: {
                 options: { min: 1000, max: 200000 },
-                errorMessage: 'Price must be between 1000 and 200,000 COP'
+                errorMessage: 'El precio debe estar entre 1000 y 200.000 COP'
               },
         },
         company:{
-            isAlpha: {errorMessage: 'Sólo letras'},
+            isAlpha: {errorMessage: 'Solo puedes usar letras en este campo'},
             notEmpty: true,
-            errorMessage: 'Empresa requerida',
+            errorMessage: 'La empresa es requerida',
             custom: {
                 options: (value) => {
                   const validTypes = ['cremhelado', 'popsy']; 
@@ -164,9 +164,9 @@ export const updateIceCreamValidator = checkSchema(
               },
         },
         type:{
-            isAlpha: {errorMessage: 'Sólo letras'},
+            isAlpha: { errorMessage: 'Solo puedes usar letras en este campo' },
             notEmpty: true,
-            errorMessage: 'Tipo requerido',
+            errorMessage: 'El tipo de helado es requerido',
             custom: {
                 options: (value) => {
                   const validTypes = ['cono', 'vaso']; 
