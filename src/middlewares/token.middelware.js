@@ -26,7 +26,7 @@ if (SplitToken[0] !== "Bearer"){
 
 jwt.verify(SplitToken[1], config.jwt_hash, (error, decode)=>{
 if(error){
-   return res.status(201).json({
+   return res.status(401).json({
       success: false,
       msg: 'Autorización requerida'
    })
