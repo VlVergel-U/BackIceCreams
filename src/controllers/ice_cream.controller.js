@@ -10,7 +10,7 @@ export async function getIceCreams (req, res) {
 
     res.status(200).json({
         sucess: true,
-        msg: "Helados obtenidos exitosamente",
+        message: "Helados obtenidos exitosamente",
         data: info
     })
 }
@@ -31,7 +31,7 @@ export  async function createIceCream (req, res) {
     if (iceCreamExists) {
         return res.status(400).json({
             success: false,
-            msg: "El helado ya existe"
+            message: "El helado ya existe"
         });
     }
 
@@ -39,7 +39,7 @@ export  async function createIceCream (req, res) {
 
     res.status(200).json({
         sucess: true,
-        msg: "Helado creado exitosamente",
+        message: "Helado creado exitosamente",
         data: info
     })
 }
@@ -62,7 +62,7 @@ export async function updateIceCream (req, res) {
 
     res.status(200).json({
         sucess: true,
-        msg: "Helado actualizado exitosamente",
+        message: "Helado actualizado exitosamente",
         data: info
     })
 }
@@ -85,7 +85,7 @@ export async function deleteIceCream (req, res) {
 
     res.status(200).json({
         sucess: true,
-        msg: "Helado eliminado exitosamente",
+        message: "Helado eliminado exitosamente",
         data: info
     })
 }
@@ -109,7 +109,7 @@ export async function getIceCream(req, res){
 
     res.status(200).json({
         sucess: true,
-        msg: "Helado obtenido exitosamente",
+        message: "Helado obtenido exitosamente",
          data: info
     })
 }

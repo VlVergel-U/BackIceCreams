@@ -55,7 +55,7 @@ export async function register(req, res) {
     if (userExists) {
       return res.status(400).json({
         success: false,
-        msg: "El usuario ya existe"
+        message: "El usuario ya existe"
       });
     }
   
@@ -66,7 +66,7 @@ export async function register(req, res) {
   
     res.status(200).json({
       success: true,
-      msg: "Usuario creado exitosamente",
+      message: "Usuario creado exitosamente",
       data: user
     });
   }
