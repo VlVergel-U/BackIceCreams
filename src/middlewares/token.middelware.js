@@ -3,6 +3,7 @@ import config from "../config/default.js";
 
 export const verifyToken = (req, res, next) =>{
  const token = req.header("Authorization");
+ console.log(`Token recibido: ${token}`);
 
  //verify that token exists
 if(!token){
