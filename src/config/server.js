@@ -40,7 +40,11 @@ export default class Server {
 
     routes() {
         this.app.use(
-            cors()
+            cors({
+                origin: "http://localhost:5173",
+                methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                allowedHeaders: ['Content-Type', 'Authorization']
+            })
         );
 
         this.app.use((req, res, next) => {
