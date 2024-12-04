@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export default {
+    url_cors: process.env.URL_CORS,
     port : process.env.PORT,
     jwt_hash: process.env.JWT_HASH,
     dbConfig: {

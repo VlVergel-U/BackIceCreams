@@ -34,14 +34,14 @@ export default class Server {
     }
 
     middlewares() {
+        this.app.use(
+            cors([server.url_cors])
+        );
         this.app.use(express.json());
         this.app.use(ValidateRoutes);
     }
 
     routes() {
-        this.app.use(
-            cors()
-        );
 
         this.app.use((req, res, next) => {
             if (!this.connectionDatabase) {
