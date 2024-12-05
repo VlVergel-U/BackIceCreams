@@ -9,7 +9,7 @@ const getIceCreams = async () => {
         FROM 
             ICE_CREAMS 
         ORDER BY 
-            id ASC;
+            id DESC;
         `
     );
 };
